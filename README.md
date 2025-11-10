@@ -10,3 +10,6 @@ Uptime
 OUTPUT ---
 CPU Usage: 18.34%
 
+
+
+Errors Segmentation Fault
