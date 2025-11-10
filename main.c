@@ -8,7 +8,7 @@ int ipAddress() {
 }
 
 int memInfo() {
-  system("head /proc/meminfo");
+  system("head /proc/stat");
   return 0;
 }
 
