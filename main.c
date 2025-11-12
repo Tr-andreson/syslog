@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 
 int ipAddress() {
   printf("IP Address");
@@ -8,13 +10,25 @@ int ipAddress() {
 }
 
 int memInfo() {
-
   FILE *fptr;
+
+  // int set unsigned integer
+  unsigned long long int user ,nice ,system , idle;
+
+  // Open the file
   fptr = fopen("/proc/stat", "r");
-  char myString[100];
-  fgets(myString, 100, fptr);
-  printf("%s", myString);
+
+  // Get Details with fscan 
+  fscanf(fptr, "cpu %llu %llu %llu %llu", &user, &nice , &system , &idle);
+
+  // Free the memory 
   fclose(fptr);
+  printf("user %d\n", user);
+  printf("nice %d\n", nice);
+  printf("system %d\n", system);
+  printf("idle %d\n", idle);
+  sleep(1);
+
   return 0;
 }
 
